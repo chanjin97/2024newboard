@@ -4,17 +4,18 @@ import styled from "styled-components";
 function CardItem({ product }) {
   // div칸에 태그넣어서 감싸는것임
   const ImageWrap = styled.div`
-    width:100%:
-    height:140px;
-    overflow:hidden;
-    &:hover img{  // div:hover img{}
-      transform:scale(1.2)
+    width: 100%;
+    height: 140px;
+    overflow: hidden;
+    &:hover img {
+      // div:hover img{}
+      transform: scale(1.2);
     }
-    img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      transition: 0.3s
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.3s;
     }
   `;
   return (
