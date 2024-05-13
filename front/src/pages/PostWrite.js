@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import axiosInstance from "../utils/axios";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import FileUpload from "../Components/FileUpload";
 const continents = [
-  {key: 1, value: "seoul"},
-  {key: 2, value: "pusan"},
-  {key: 3, value: "kangwon"},
-  {key: 4, value: "suwon"},
-  {key: 5, value: "daegu"},
+  { key: 1, value: "seoul" },
+  { key: 2, value: "pusan" },
+  { key: 3, value: "kangwon" },
+  { key: 4, value: "suwon" },
+  { key: 5, value: "daegu" },
 ];
 
 function PostWrite() {
@@ -21,7 +22,7 @@ function PostWrite() {
   const navigate = useNavigate();
 
   function handelChange(e) {
-    const {name, value} = e.target;
+    const { name, value } = e.target;
     console.log(value, name);
     setProduct((prevState) => {
       return {
@@ -42,6 +43,13 @@ function PostWrite() {
     } catch (error) {
       console.log(error);
     }
+  }
+
+  function handleImage(newImages) {
+    setProduct((prevState) => ({
+      ...prevState,
+      images: newImages,
+    }));
   }
 
   return (
@@ -108,6 +116,9 @@ function PostWrite() {
             })}
           </select>
         </div>
+
+        <FileUpload images={product.images} onImageChange={handleImage} />
+
         <div>
           <button className="w-full px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700">
             글작성완료

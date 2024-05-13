@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 const upload = multer({
   storage,
   fileFilter: (req, file, cb) => {
-    if (["image/png", "images/jpeg"].includes(file.mimetype)) {
+    if (["image/png", "image/jpeg"].includes(file.mimetype)) {
       /* mimetype은 확장자명 */ return cb(null, true);
     } else {
       return cb(new Error("invlid file type"), false);
